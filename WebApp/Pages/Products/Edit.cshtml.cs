@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebApp.Pages.Products;
 
-[Authorize]
+/*[Authorize]*/
     public class EditModel : PageModel
     {
         private ProductService productService;
@@ -24,9 +24,9 @@ namespace WebApp.Pages.Products;
         {
             if (id == null) return NotFound();
 
-           /* Product = productService.GetProducts(id.Value);*/
-            if (Product == null) return NotFound();
-
+        Product = productService.GetProductbyId(id.Value);
+        if (Product == null) return NotFound();
+  
            /* PopulateCategoriesDropDown();*/
 
             return Page();
@@ -35,14 +35,16 @@ namespace WebApp.Pages.Products;
         {
             if (!ModelState.IsValid)
             {
-                /*PopulateCategoriesDropDown();*/
-                return Page();
+            /*PopulateCategoriesDropDown();*/
+            return Page();
             }
 
-           /* productService.UpdateProduct(Product);*/
+        productService.UpdateProduct(Product);
 
-            return RedirectToPage("./Index");
+        return RedirectToPage("./Index");
         }
+
+
        /* private void PopulateCategoriesDropDown()
         {
             var categories = productService.getCategories();
