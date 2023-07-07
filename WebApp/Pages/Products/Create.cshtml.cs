@@ -27,6 +27,7 @@ namespace WebApp.Pages.Products;
             return Page();
         }*/
 
+
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid || Product == null)
