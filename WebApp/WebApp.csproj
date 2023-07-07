@@ -10,8 +10,4 @@
     <ProjectReference Include="..\CoreLogic\CoreLogic.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\Athentication\" />
-  </ItemGroup>
-
 </Project>
