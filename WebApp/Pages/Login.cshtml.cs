@@ -28,6 +28,13 @@ namespace WebApp.Pages
                 return Page();
             }
 
+            if (Email != user.Email)
+            {
+                // Passwords don't match.
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return Page();
+            }
+
             if (Password != user.Password)
             {
                 // Passwords don't match.
@@ -36,24 +43,23 @@ namespace WebApp.Pages
             }
 
             // User has provided valid credentials. Proceed with your login process...
-            await SignInUser();
+            //await SignInUser();
 
             return RedirectToPage("/Products/Index");
         }
 
-        private async Task SignInUser()
+        /*private async Task SignInUser()
         {
             var claims = new List<Claim>
         {
             new Claim(ClaimTypes.Name, UserName)
-        };
+        };*/
 
-            var claimsIdentity = new ClaimsIdentity(claims, "CookieAuth");
+            /*var claimsIdentity = new ClaimsIdentity(claims, "CookieAuth");
 
             var authProperties = new AuthenticationProperties();
 
             await HttpContext.SignInAsync("CookieAuth", new ClaimsPrincipal(claimsIdentity), authProperties);
-
-        }
+*/
     }
 }

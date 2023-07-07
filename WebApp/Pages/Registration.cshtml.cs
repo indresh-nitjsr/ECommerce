@@ -58,16 +58,16 @@ namespace WebApp.Pages.Athentication
                 Mobile = MobileNumber,
                 Address = Address,
                 Password = Password,
-                ConfirmPassword = ConfirmPassword
+                ConfirmPassword = ConfirmPassword,
             };
             userService.Register(newUser);
 
-            await SignInUser();
+            //await SignInUser();
 
             return RedirectToPage("/Products/Index");
         }
 
-        private async Task SignInUser()
+        /*private async Task SignInUser()
         {
             var claims = new List<Claim>
         {
@@ -79,7 +79,7 @@ namespace WebApp.Pages.Athentication
             var authProperties = new AuthenticationProperties();
 
             await HttpContext.SignInAsync("CookieAuth", new ClaimsPrincipal(claimsIdentity), authProperties);
-        }
+        }*/
     }
 
 }

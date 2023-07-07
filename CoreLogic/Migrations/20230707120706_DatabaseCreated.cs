@@ -5,7 +5,7 @@
 namespace CoreLogic.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateDb : Migration
+    public partial class DatabaseCreated : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

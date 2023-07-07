@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebApp.Pages.Products;
-[Authorize]
     public class CreateModel : PageModel
     {
         private ProductService productService;
