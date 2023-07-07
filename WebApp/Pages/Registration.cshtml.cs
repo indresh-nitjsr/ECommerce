@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace WebApp.Pages.Athentication
+namespace WebApp.Pages
 {
     public class RegistrationModel : PageModel
     {
