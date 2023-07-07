@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreLogic.Migrations
 {
     [DbContext(typeof(MyContextDB))]
-    [Migration("20230707072054_CreateDatabase")]
-    partial class CreateDatabase
+    [Migration("20230707112409_CreateDb")]
+    partial class CreateDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,6 +64,10 @@ namespace CoreLogic.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfirmPassword")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
