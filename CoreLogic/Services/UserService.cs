@@ -23,5 +23,15 @@ namespace CoreLogic.Services
             var users = ctx.Users.ToList(); 
             return users;
         }
+        public void Register(User user)
+        {
+            ctx.Users.Add(user);
+            ctx.SaveChanges();
+        }
+
+        public User GetUser(string email)
+        {
+            return ctx.Users.SingleOrDefault(x => x.Email == email);
+        }
     }
 }
