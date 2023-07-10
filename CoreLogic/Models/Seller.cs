@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace CoreLogic.Models
 {
-    public class User
+    public class Seller
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-		public string ConfirmPassword { get; set; }
-		public string Address { get; set; }
-        public string Mobile { get; set; }
-
-
+        // Other properties specific to the seller
+          
+        // Navigation properties
+        public ICollection<Product> Products { get; set; }
     }
 }

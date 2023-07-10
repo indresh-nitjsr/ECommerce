@@ -67,11 +67,11 @@ namespace WebApp.Pages.Athentication
             return RedirectToPage("/Products/Index");
         }
 
-        /*private async Task SignInUser()
+        private async Task SignInUser()
         {
             var claims = new List<Claim>
         {
-            new Claim(ClaimTypes.Name, UserName)
+            new Claim(ClaimTypes.Email, Email)
         };
 
             var claimsIdentity = new ClaimsIdentity(claims, "CookieAuth");
@@ -79,7 +79,7 @@ namespace WebApp.Pages.Athentication
             var authProperties = new AuthenticationProperties();
 
             await HttpContext.SignInAsync("CookieAuth", new ClaimsPrincipal(claimsIdentity), authProperties);
-        }*/
+        }
     }
 
 }

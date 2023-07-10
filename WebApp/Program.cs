@@ -1,7 +1,28 @@
+using CoreLogic.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<MyContextDB>();
+
+builder.Services.AddAuthentication("CookieAuth")
+	.AddCookie("CookieAuth", config =>
+	{
+		config.Cookie.Name = "User.Cookie";
+		config.LoginPath = "/Login";
+		config.LogoutPath = "/Logout";
+	});
+
+/*builder.Services.AddAuthentication("CookieAuth")
+	.AddCookie("CookieAuth", config =>
+	{
+		config.Cookie.Name = "Seller.Cookie";
+		config.LoginPath = "/SellerLogin";
+		config.LogoutPath = "/Logout";
+	});
+*/
 
 var app = builder.Build();
 
