@@ -11,6 +11,11 @@ a {
     color: #fafafa;
 }
 
+.img-size{
+    height : 300px;
+    width : 250px;
+}
+
 
 .btn-primary {
     color: #fff;

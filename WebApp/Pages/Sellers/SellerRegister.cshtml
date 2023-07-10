@@ -1,0 +1,39 @@
+﻿@page
+@model WebApp.Pages.SellerModel.SellerRegisterModel
+@{
+}
+<div class="container">
+	<div class="row w-50">
+		<form method="post" class="needs-validation" novalidate>
+			<h2>Seller Registration</h2>
+			<div asp-validation-summary="All" class="text-danger"></div>
+			<div class="form-group">
+				<label for="sellername">Sellername:</label>
+				<input type="text" class="form-control" id="sellername" name="Sellername" required>
+				<div class="invalid-feedback">
+					Please enter your Seller Name.
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="email">Email:</label>
+				<input type="text" class="form-control" id="email" name="Email" required>
+				<div class="invalid-feedback">
+					Please enter your Email.
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password">Password:</label>
+				<input type="password" class="form-control" id="password" name="Password" required>
+				<div class="invalid-feedback">
+					Please enter your password.
+				</div>
+			</div>
+			<br />
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Registration</button>
+			</div>
+		</form>
+	</div>
+	<a href="/Seller/SellerLogin">Login</a>
+</div>
+

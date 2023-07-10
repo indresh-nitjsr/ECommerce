@@ -8,30 +8,46 @@
     <h2 class="display-4">Products</h2>
 </div>
 
-<table class="table table-striped table-sm">
-    <thead>
-        <tr>
-            <th>Product Id</th>
-            <th>Product Category</th>
-            <th>Product Name</th>
-            <th>Product Description</th>
-            <th>Product Price</th>
-            <th>Product Qunatity</th>
+<div class="row">
+    @foreach (var prod in Model.products)
+    {
+        <div class="col-12 col-md-3 mb-4">
+            <div class="card text-center">
+                <!-- Card content -->
+                <div class="card-header fw-bold fs-5 mb-3 text-primary">Header</div>
 
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var prod in Model.products)
-        {
-            <tr>
-                <td>@prod.Id</td>
-                <td>@prod.Category</td>
-                <td>@prod.ProductName</td>
-                <td>@prod.Description</td>
-                <td>@prod.Price</td>
-                <td>@prod.Qunatity</td>
-                
-            </tr>
-        }
-    </tbody>
-</table>
+                <div class="overflow-hidden d-flex justify-content-center align-items-center">
+                    <a href="/Products/Details?id=@prod.Id">  <img src="@prod.URL" alt="" class="card-img-top" style="width: 220px; height: 220px;" /></a>
+                </div>
+
+                <div class="card-body" >
+                    <h5 class="card-title title">@prod.ProductName</h5>
+                    <h6 class="card-subtitle my-2 text-primary"></h6>
+                    <p class="card-text description" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">@prod.Description</p>
+                </div>
+
+                <div class="card-body">
+                    @*<h5 class="card-title text-success">
+                <span class="text-primary">-{{ product.offer.discount }}%</span>
+                </h5>*@
+                    <h5 class="card-subtitle text-dark ">
+                        @* Display Rupees symbol using Unicode character &#8377; *@
+                        &#8377; @prod.Price
+                    </h5>
+                </div>
+
+                <div class="card-footer d-grid gap-2">
+                    <button class="btn btn-outline-primary">
+                        Add to Cart
+                        @*<span *ngIf="!utilityService.isLoggedIn()">(Login First)</span>*@
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+
