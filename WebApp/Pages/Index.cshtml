@@ -37,11 +37,16 @@
                 </div>
 
                 <div class="card-footer d-grid gap-2">
-                    <button class="btn btn-outline-primary">
+                    @*<button class="btn btn-outline-primary">
                         Add to Cart
-                        @*<span *ngIf="!utilityService.isLoggedIn()">(Login First)</span>*@
-                    </button>
+                        @*<span *ngIf="!utilityService.isLoggedIn()">(Login First)</span>
+                    </button>*@
+                    <form method="post">
+                        <button class="btn btn-outline-primary" type="submit" asp-page-handler="AddToCart">Add to Cart</button>
+                    </form>
                 </div>
+                
+
             </div>
         </div>
     }

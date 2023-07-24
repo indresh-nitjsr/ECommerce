@@ -1,6 +1,7 @@
 using CoreLogic.Models;
 using CoreLogic.Services;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Security.Claims;
@@ -11,7 +12,6 @@ namespace WebApp.Pages.Athentication
     {
         [BindProperty]
         public string UserName { get; set; }
-
 
         [BindProperty]
         public string Email { get; set; }
@@ -62,7 +62,7 @@ namespace WebApp.Pages.Athentication
             };
             userService.Register(newUser);
 
-            //await SignInUser();
+            await SignInUser();
 
             return RedirectToPage("/Products/Index");
         }
