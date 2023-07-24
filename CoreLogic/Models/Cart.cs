@@ -13,5 +13,6 @@ namespace CoreLogic.Models
         public List<CartItem> CartItems { get; set; }
         public bool Ordered { get; set; }
         public string OrderedOn { get; set; }
+        public bool IsActive { get; set; }  
     }
 }

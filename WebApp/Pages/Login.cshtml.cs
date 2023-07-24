@@ -43,16 +43,18 @@ public class LoginModel : PageModel
         }
 
         // User has provided valid credentials. Proceed with your login process...
-        await SignInUser();
+        await SignInUser(user.Email);
+        //var loggedInUserName = HttpContext.Session.GetString("LoggedInUserName");
 
         return RedirectToPage("/Index");
     }
 
-    private async Task SignInUser()
+    private async Task SignInUser(string email)
     {
+        
         var claims = new List<Claim>
         {
-            new Claim(ClaimTypes.Email, Email)
+            new Claim(ClaimTypes.Email, email)
         };
 
         var claimsIdentity = new ClaimsIdentity(claims, "CookieAuth");
@@ -60,5 +62,14 @@ public class LoginModel : PageModel
         var authProperties = new AuthenticationProperties();
 
         await HttpContext.SignInAsync("CookieAuth", new ClaimsPrincipal(claimsIdentity), authProperties);
+
+        //HttpContext.Session.SetString("LoggedInUserName", email);
+
+        /*var loggedInUserNameClaim = User.FindFirst("id");
+        if (loggedInUserNameClaim != null)
+        {
+            var LoggedInUserName = loggedInUserNameClaim.Value;
+            // Use the logged-in user's name as needed
+        }*/
     }
 }

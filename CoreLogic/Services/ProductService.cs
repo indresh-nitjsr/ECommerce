@@ -20,8 +20,10 @@ namespace CoreLogic.Services
         }
         public List<Product> GetAllProducts()
         {
-            //new Product { Id = 1, Category = "Mobile", Description = "6GB RAM 128GB Strorage Snapdragon processor" ,ProductName = "OnePlus 9 pro" , Price = 31000 , Qunatity=1},
-            //new Product { Id = 2, Category = "Laptop", Description = "8GB RAM 1TB Strorage OctaCore processor" ,ProductName = "MacBook" , Price = 80000 , Qunatity=2},
+
+            //new Product { Id = 1, Category = "Mobile", Description = "6GB RAM 128GB Strorage Snapdragon processor", ProductName = "OnePlus 9 pro", Price = 31000, Qunatity = 1 };
+            //new Product { Id = 2, Category = "Laptop", Description = "8GB RAM 1TB Strorage OctaCore processor", ProductName = "MacBook", Price = 80000, Qunatity = 2 };
+
             var products = ctx.Products.ToList();
             return products;
         }
@@ -46,7 +48,8 @@ namespace CoreLogic.Services
 
         public Product GetProductbyId(int id)
         {
-            return ctx.Products.Single(p => p.Id == id);
+            var product = ctx.Products.Single(p => p.Id == id);
+            return product;
         }
     }
 }
